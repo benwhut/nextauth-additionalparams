@@ -11,7 +11,17 @@ signIn("identity-server4", null, { prompt: "login" }) // always ask the user to 
 signIn("auth0", null, { login_hint: "info@example.com" }) // hints the e-mail address to the provider
 ```
 
-However, there is no full working example and I'm unable to read any additional parameters that I've added in `/api/auth/[...nextauth].js`. How do you read these additional parameters in, for example, the `signIn()` callback?
+However, there is no full working example and I'm unable to read any additional parameters that I've added in `/api/auth/[...nextauth].js`. 
+
+I added this additional parameter to this code:
+
+```javascript
+signIn('email', 
+            {email, callbackUrl: '/dashboard', redirect: false}, 
+            {addedParam: "My added parameter"}) // <- MY ADDITIONAL PARAMETER!
+```
+
+How do you read this additional parameter in, for example, the `signIn()` callback?
 
 For full details, the original question was asked on [stackoverflow](https://stackoverflow.com/questions/73793681/how-to-read-additional-parameters-in-nextauth-signin-callback) and [next-auth github](https://github.com/nextauthjs/next-auth/discussions/5389).
 
