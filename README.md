@@ -13,7 +13,7 @@ signIn("auth0", null, { login_hint: "info@example.com" }) // hints the e-mail ad
 
 However, there is no full working example and I'm unable to read any additional parameters that I've added in `/api/auth/[...nextauth].js`. How do you read these additional parameters in, for example, the `signIn()` callback?
 
-This question was originally asked on [stackoverflow](https://stackoverflow.com/questions/73793681/how-to-read-additional-parameters-in-nextauth-signin-callback) and [next-auth github](https://github.com/nextauthjs/next-auth/discussions/5389).
+For full details, the original question was asked on [stackoverflow](https://stackoverflow.com/questions/73793681/how-to-read-additional-parameters-in-nextauth-signin-callback) and [next-auth github](https://github.com/nextauthjs/next-auth/discussions/5389).
 
 ## Getting Started
 
