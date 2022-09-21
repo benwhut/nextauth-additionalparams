@@ -32,7 +32,7 @@ yarn dev
 
 7) Open [http://localhost:3000](http://localhost:3000) with your browser and enter an email address to see the output result on the server side.
 
-The `signIn() callback` output should look like this:
+The `signIn() callback` output on the server should look like this:
 
 ```javascript
 User: {
