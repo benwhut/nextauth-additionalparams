@@ -28,18 +28,11 @@ For full details, the original question was asked on [stackoverflow](https://sta
 ## Getting Started
 
 1) Fork or download this source code
-2) `yarn install`
+2) `npm install` or `yarn` to install dependencies
 3) add `.env` file. Add in your postgresql URL and mail server settings. Use the `.env-example` as a template.
-4) `yarn prisma migrate dev`
-5) `yarn prisma generate`
-6) run the dev server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
+4) `npx prisma migrate dev` or `yarn prisma migrate dev` to setup database from `/prisma/prisma.schema`
+5) `npx prisma generate or `yarn prisma generate` to generate the prisma client
+6) `npm run dev` or `yarn dev` to run a local dev server
 7) Open [http://localhost:3000](http://localhost:3000) with your browser and enter an email address to see the output result on the server side.
 
 The `signIn() callback` output on the server should look like this:
