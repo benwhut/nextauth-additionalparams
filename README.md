@@ -17,8 +17,8 @@ I added this additional parameter to this code:
 
 ```javascript
 signIn('email', 
-            {email, callbackUrl: '/dashboard', redirect: false}, 
-            {addedParam: "My added parameter"}) // <- MY ADDITIONAL PARAMETER!
+  {email, callbackUrl: '/dashboard', redirect: false}, 
+  {addedParam: "My added parameter"}) // <- MY ADDITIONAL PARAMETER!
 ```
 
 How do you read this additional parameter in, for example, the `signIn()` callback?
