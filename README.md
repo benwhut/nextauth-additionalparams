@@ -1,6 +1,6 @@
 ## Next-Auth read additional parameters sample code
 
-This is a simple Next Auth project that uses Postgresql and Nodemailer to illustrate the issue of not being able to read the additional parameters passed from `signIn()` to `/api/auth/[...nextauth].js`.
+This is a simple Next Auth project that uses Postgresql and Nodemailer to illustrate the issue of not being able to read additional parameters passed from `signIn()` to `/api/auth/[...nextauth].js`.
 
 According to [Next Auth docs](https://next-auth.js.org/getting-started/client#additional-parameters), I can pass additional parameters to the `/authorize` endpoint through the third argument of `signIn()`.
 
