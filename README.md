@@ -1,8 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Next-Auth read additional parameters sample code
+
+This is a simple Next Auth project that uses Postgresql and Nodemailer to illustrate the issue of not being able to read the additional parameters passed from `signIn()` to `/api/auth/[...nextauth].js`.
+
+According to [Next Auth docs](https://next-auth.js.org/getting-started/client#additional-parameters), I can pass additional parameters to the `/authorize` endpoint through the third argument of `signIn()`.
+
+The docs show two examples:
+
+```javascript
+signIn("identity-server4", null, { prompt: "login" }) // always ask the user to re-authenticate
+signIn("auth0", null, { login_hint: "info@example.com" }) // hints the e-mail address to the provider
+```
+
+However, there is no full working example and I'm unable to read any additional parameters that I've added in /api/auth/[...nextauth].js. How do you read these additional parameters in, for example, the signIn() callback?
+
+This question was originally asked on [stackoverflow](https://stackoverflow.com/questions/73793681/how-to-read-additional-parameters-in-nextauth-signin-callback) and [next-auth github](https://github.com/nextauthjs/next-auth/discussions/5389).
 
 ## Getting Started
 
-First, run the development server:
+1) Fork or download this source code
+2) `yarn install`
+3) add .env file. Add in your postgresql URL and mail server settings. Use the .env-example as a template.
+4) `yarn prisma migrate dev`
+5) `yarn prisma generate`
+6) run the dev server:
 
 ```bash
 npm run dev
@@ -10,13 +30,28 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+7) Open [http://localhost:3000](http://localhost:3000) with your browser and enter an email address to see the output result on the server side.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+The `signIn() callback` output should look like this:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+```javascript
+User: {
+  user: { email: 'user@domain.com', id: 'user@domain.com' },
+  account: {
+    providerAccountId: 'user@domain.com',
+    userId: 'user@domain.com',
+    type: 'email',
+    provider: 'email'
+  },
+  email: { verificationRequest: true }
+}
+Account undefined
+Profile undefined
+Email undefined
+Credentials undefined
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+As you can see, the additional parameter `{addedParam: "My added parameter"}` doesn't show up in any of the objects. How do I read this added parameter in `/api/auth/[...nextauth].js`?
 
 ## Learn More
 
